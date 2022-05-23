@@ -11,6 +11,12 @@ import Axios from 'axios'
 
 // 配置请求的根路径
 Axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+// 判断登录token是否登录 没有就不开权限
+Axios.interceptors.request.use(config =>{
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
+
 
 // 每一个组件都可以直接访问http 从而发起网络请求
 Vue.prototype.$http = Axios

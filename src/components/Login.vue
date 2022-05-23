@@ -85,7 +85,7 @@ export default {
         // 返回一个promise 需要（只能修饰async）await简化这次操作  变成具体的响应对象
         // 返回的data属性重命名为 res
         const { data: res } = await this.$http.post("login", this.loginForm)
-        if (res.meta.status !== 200)  return this.$message.error('登陆失败'); 
+        if (res.meta.status !== 200) return this.$message.error('登陆失败');
         this.$message.success(); ('登录成功')
 
         console.log(res);
